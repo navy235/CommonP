@@ -1,0 +1,27 @@
+﻿.icon-button {
+    height: 23px;
+    width: 16px;
+    float: left;
+    padding-right: 3px;
+}
+
+.link-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    float: left;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.icon-btn-save {
+    background: url('images/16/page_save.png') no-repeat scroll 0px 4px;
+}
+
+.icon-controller {
+    background: url('images/16/laptop_key.png') no-repeat;
+}
+
+.icon-action {
+    background: url('images/16/application_double.png') no-repeat;
+}

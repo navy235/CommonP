@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/themes/default/all")
+    @Styles.Render("~/Content/themes/icon")
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquerycontrol")
+    @Scripts.Render("~/bundles/base")
+    <script type="text/javascript" src="~/Scripts/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/easyui/easyui-lang-zh_CN.js"></script>
+</head>
+<body class="easyui-layout" style="overflow-y: hidden">
+    <div data-options="region:'north'" style="height: 50px"></div>
+    <div data-options="region:'south'" style="height: 30px; background: #D2E0F2">
+        <div class="footer">By maitonn.cn</div>
+    </div>
+    <div data-options="region:'west',split:true" title="导航菜单" id="leftMenu" style="width: 180px;">
+        <div class="easyui-accordion" data-options="border:false">
+            <div title="基本功能">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("list", "home")">
+                            <span class="link-icon icon-controller "></span>
+                            控制器管理</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("index", "action")">
+                            <span class="link-icon icon-action "></span>
+                            操作管理</a>
+
+                    </li>
+                    <li>
+                        <a href="@Url.Action("index", "role")">
+                            <span class="link-icon icon-role "></span>
+                            角色管理</a>
+                    </li>
+                    <li><a href="@Url.Action("index", "contactrequire")">我的合同</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="mainPanle" data-options="region:'center',title:'@ViewBag.Title',iconCls:'icon-ok'">
+        <div id="tabs" class="easyui-tabs" data-options="fit:true,border:false">
+            <div title="欢迎使用" style="padding: 20px; overflow: hidden;" id="home">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <div id="mm" class="easyui-menu" style="width: 150px;">
+
+
+        <div id="mm-tabclose">关闭</div>
+        <div id="mm-tabcloseall">全部关闭</div>
+        <div id="mm-tabcloseother">除此之外全部关闭</div>
+        <div class="menu-sep"></div>
+        <div id="mm-tabcloseright">当前页右侧全部关闭</div>
+        <div id="mm-tabcloseleft">当前页左侧全部关闭</div>
+        <div class="menu-sep"></div>
+        <div id="mm-tabrefresh">刷新</div>
+        <div class="menu-sep"></div>
+        <div id="mm-exit">退出</div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

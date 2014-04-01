@@ -1,0 +1,17 @@
+﻿<div class="ajax-form-container">
+    @using (Ajax.BeginForm("edit", "controller", new AjaxOptions()
+{
+    OnSuccess = "ajaxFormSuccess",
+    OnFailure = "ajaxFormFailure"
+}, new { formtitle = "编辑控制器" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.EditorForModel()
+        <div class="form-field form-field-submit">
+            <button type="submit" class="btn btn-green btn-save ">
+                <i class="icon-button icon-save"></i>
+                保 存</button>
+        </div>
+    }
+</div>
+

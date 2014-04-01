@@ -1,0 +1,19 @@
+@model  int?
+
+@{
+    var name = ViewData.TemplateInfo.GetFullHtmlFieldName("");
+    var loadUrl = ViewData[name + "_LoadUrl"].ToString();
+}
+
+@Html.TextBoxFor(m => m, new { tabindex = -1, @class = "field-valid-text" })
+
+<script type="text/javascript">
+    $(function () {
+        $('#@(name)').groupCombox({
+            url: '@loadUrl',
+            multiple: true
+        })
+    })
+</script>
+
+
