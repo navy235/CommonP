@@ -31,6 +31,12 @@ namespace CommonP.Controllers
         public ActionResult getall(int page = 1, int rows = 10)
         {
             var query = ControllerService.GetALL()
+                .Select(x => new ControllerListViewModel()
+                {
+                    Description = x.Description,
+                    ID = x.ID,
+                    Name = x.Name
+                })
                 .OrderBy(x => x.ID)
                 .Skip((page - 1) * rows)
                 .Take(rows).ToList();

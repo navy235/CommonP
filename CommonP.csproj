@@ -43,6 +43,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Binaries\Kendo.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Maitonn.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\Maitonn.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
@@ -189,6 +193,7 @@
     <Content Include="Binaries\Kendo.Mvc.dll" />
     <Content Include="Binaries\Kendo.Mvc.resources.dll" />
     <Content Include="Binaries\Kendo.Mvc.xml" />
+    <Content Include="Binaries\Maitonn.Core.dll" />
     <Content Include="Content\button.css" />
     <Content Include="Content\form.css" />
     <Content Include="Content\icon.css" />
@@ -3084,12 +3089,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\WebSite\Maitonn.Core\Maitonn.Core.csproj">
-      <Project>{8404c3a7-9f29-4c74-9913-165bae8c86db}</Project>
-      <Name>Maitonn.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />

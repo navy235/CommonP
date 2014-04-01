@@ -25,4 +25,13 @@ namespace CommonP.ViewModels
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
     }
+    public class ControllerListViewModel
+    {
+        public int ID { get; set; }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+    }
 }
