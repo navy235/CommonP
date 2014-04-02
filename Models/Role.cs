@@ -8,6 +8,13 @@ namespace CommonP.Models
 
     public class Role
     {
+
+        public Role()
+        {
+            this.Action = new HashSet<Action>();
+            this.Group = new HashSet<Group>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "ID")]

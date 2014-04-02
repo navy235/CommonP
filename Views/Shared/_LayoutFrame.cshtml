@@ -10,11 +10,12 @@
 
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jquerycontrol")
+
     @Scripts.Render("~/bundles/base")
     <script type="text/javascript" src="~/Scripts/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="~/Scripts/easyui/easyui-lang-zh_CN.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquerycontrol")
 </head>
 <body class="easyui-layout" style="overflow-y: hidden">
     <div data-options="region:'north'" style="height: 50px"></div>
@@ -34,19 +35,23 @@
                         <a href="@Url.Action("index", "action")">
                             <span class="link-icon icon-action "></span>
                             操作管理</a>
-
                     </li>
                     <li>
                         <a href="@Url.Action("index", "role")">
                             <span class="link-icon icon-role "></span>
                             角色管理</a>
                     </li>
-                    <li><a href="@Url.Action("index", "contactrequire")">我的合同</a></li>
+                    <li><a href="@Url.Action("index", "group")">
+                        <span class="link-icon icon-group "></span>
+                        群组管理</a></li>
+                    <li><a href="@Url.Action("index", "member")">
+                        <span class="link-icon icon-user "></span>
+                        用户管理</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div id="mainPanle" data-options="region:'center',title:'@ViewBag.Title',iconCls:'icon-ok'">
+    <div id="mainPanle" data-options="region:'center'">
         <div id="tabs" class="easyui-tabs" data-options="fit:true,border:false">
             <div title="欢迎使用" style="padding: 20px; overflow: hidden;" id="home">
                 @RenderBody()
@@ -55,8 +60,6 @@
     </div>
 
     <div id="mm" class="easyui-menu" style="width: 150px;">
-
-
         <div id="mm-tabclose">关闭</div>
         <div id="mm-tabcloseall">全部关闭</div>
         <div id="mm-tabcloseother">除此之外全部关闭</div>

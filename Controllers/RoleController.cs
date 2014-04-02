@@ -68,6 +68,8 @@ namespace CommonP.Controllers
         public ActionResult Create()
         {
             var model = new RoleViewModel();
+            //ViewBag.ActionID_LoadUrl = Url.Action("GetActionComboTree", "AjaxService");
+
             ViewBag.ActionID_LoadUrl = Url.Action("GetActionComboTree", "AjaxService");
             ViewBag.ActionID_Prefix = "c_";
             return PartialView(model);
@@ -83,14 +85,14 @@ namespace CommonP.Controllers
                 try
                 {
                     RoleService.Create(model);
-                    result.Message = "添加操作成功！";
-                    LogHelper.WriteLog("添加操作成功");
+                    result.Message = "添加角色成功！";
+                    LogHelper.WriteLog("添加角色成功");
                 }
                 catch (Exception ex)
                 {
                     result.Message = Utilities.GetInnerMostException(ex);
                     result.AddServiceError(result.Message);
-                    LogHelper.WriteLog("添加操作错误", ex);
+                    LogHelper.WriteLog("添加角色错误", ex);
                 }
             }
             else
@@ -106,13 +108,15 @@ namespace CommonP.Controllers
         public ActionResult Edit(int ID)
         {
             var entity = RoleService.GetALL().Include(x => x.Action).Single(x => x.ID == ID);
+            string ActionID = string.Join(",", entity.Action.Select(x => x.ID.ToString()));
             var model = new RoleViewModel()
             {
                 ID = entity.ID,
                 Description = entity.Description,
-                Name = entity.Name
+                Name = entity.Name,
+                ActionID = ActionID
             };
-            string ActionID = string.Join(",", entity.Action.Select(x => x.ID.ToString()));
+
             //ViewBag.ActionID_LoadUrl = Url.Action("GetActionGroupCombox", "AjaxService", new { ActionID = ActionID });
             ViewBag.ActionID_Prefix = "c_";
             ViewBag.ActionID_LoadUrl = Url.Action("GetActionComboTree", "AjaxService", new { ActionID = ActionID });
@@ -131,14 +135,14 @@ namespace CommonP.Controllers
                 try
                 {
                     RoleService.Update(model);
-                    result.Message = "编辑操作成功！";
-                    LogHelper.WriteLog("编辑操作成功");
+                    result.Message = "编辑角色成功！";
+                    LogHelper.WriteLog("编辑角色成功");
                 }
                 catch (Exception ex)
                 {
                     result.Message = Utilities.GetInnerMostException(ex);
                     result.AddServiceError(result.Message);
-                    LogHelper.WriteLog("编辑操作错误", ex);
+                    LogHelper.WriteLog("编辑角色错误", ex);
                 }
             }
             else
@@ -157,14 +161,14 @@ namespace CommonP.Controllers
             try
             {
                 RoleService.Delete(entity);
-                result.Message = "删除操作成功！";
-                LogHelper.WriteLog("删除操作成功");
+                result.Message = "删除角色成功！";
+                LogHelper.WriteLog("删除角色成功");
             }
             catch (Exception ex)
             {
                 result.Message = Utilities.GetInnerMostException(ex);
                 result.AddServiceError(result.Message);
-                LogHelper.WriteLog("删除操作错误", ex);
+                LogHelper.WriteLog("删除角色错误", ex);
             }
             return Json(result);
         }

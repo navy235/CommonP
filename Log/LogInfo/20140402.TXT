@@ -1,0 +1,40 @@
+
+ ExLogTime :2014-04-02 13:14:54,541 [114] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+编辑操作成功 
+
+ ExLogTime :2014-04-02 13:16:12,370 [102] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+编辑操作成功 
+
+ ExLogTime :2014-04-02 13:16:21,407 [108] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+编辑操作成功 
+
+ ExLogTime :2014-04-02 15:44:23,594 [24] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+编辑操作成功 
+
+ ExLogTime :2014-04-02 15:52:12,154 [9] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+添加操作成功 
+
+ ExLogTime :2014-04-02 16:08:19,244 [32] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+添加群组成功 
+
+ ExLogTime :2014-04-02 16:12:39,123 [13] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+编辑群组成功 
+
+ ExLogTime :2014-04-02 16:13:01,092 [9] 
+ ExLogLevel :INFO  
+ ExLogClass :loginfo [(null)] 
+添加群组成功 

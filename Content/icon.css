@@ -34,3 +34,11 @@
 .icon-role {
     background: url('images/16/group_key.png') no-repeat;
 }
+
+.icon-group {
+    background: url('images/16/group.png') no-repeat;
+}
+
+.icon-user {
+    background: url('images/16/user.png') no-repeat;
+}

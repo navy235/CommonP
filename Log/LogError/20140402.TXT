@@ -1,0 +1,27 @@
+
+ ExTime :2014-04-02 15:46:24,810 [22] 
+ ExLevel :ERROR 
+ ExClass :logerror [(null)] 
+添加操作错误 
+ System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Kendo.Mvc.Extensions.CollectionExtensions.AddRange[T](ICollection`1 instance, IEnumerable`1 collection)
+   在 CommonP.Service.RoleService.Create(RoleViewModel model) 位置 d:\GitProject\CommonP\Service\RoleService.cs:行号 52
+   在 CommonP.Controllers.RoleController.Create(RoleViewModel model) 位置 d:\GitProject\CommonP\Controllers\RoleController.cs:行号 87
+
+ ExTime :2014-04-02 15:48:42,080 [9] 
+ ExLevel :ERROR 
+ ExClass :logerror [(null)] 
+添加操作错误 
+ System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Kendo.Mvc.Extensions.CollectionExtensions.AddRange[T](ICollection`1 instance, IEnumerable`1 collection)
+   在 CommonP.Service.RoleService.Create(RoleViewModel model) 位置 d:\GitProject\CommonP\Service\RoleService.cs:行号 52
+   在 CommonP.Controllers.RoleController.Create(RoleViewModel model) 位置 d:\GitProject\CommonP\Controllers\RoleController.cs:行号 87
+
+ ExTime :2014-04-02 15:49:35,294 [9] 
+ ExLevel :ERROR 
+ ExClass :logerror [(null)] 
+添加操作错误 
+ System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Kendo.Mvc.Extensions.CollectionExtensions.AddRange[T](ICollection`1 instance, IEnumerable`1 collection)
+   在 CommonP.Service.RoleService.Create(RoleViewModel model) 位置 d:\GitProject\CommonP\Service\RoleService.cs:行号 52
+   在 CommonP.Controllers.RoleController.Create(RoleViewModel model) 位置 d:\GitProject\CommonP\Controllers\RoleController.cs:行号 87

@@ -8,16 +8,18 @@
       var ps = $.extend({
         valueField: 'value',
         textField: 'text',
-        groupField: 'group',
+        groupField: '',
         method: 'get',
         multiple: false,
         editable: false,
         width: 186,
-        url: ''
+        url: '',
+        value: ''
       }, setting);
       var that = this;
       var id = that.attr('id');
       var comboxId = id + '_Combox';
+      var currentValue = ps.value.split(',');
       function binding() {
         createCombox();
       }
@@ -28,8 +30,13 @@
         var opts = $.extend(ps, {
           onChange: onChange
         })
-        control.combobox(ps);
+        opts.value = null;
+        if (currentValue.length > 0) {
+          opts.setValues = currentValue;
+        }
+        control.combobox(opts);
       }
+
       function onChange(newvalue, oldvalue) {
         //var value = newvalue.concat(newvalue);
         //value = _.uniq(value);

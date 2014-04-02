@@ -29,6 +29,31 @@ namespace CommonP.Controllers
             return View();
         }
 
+        public ActionResult GetRoleCombox(string RoleID = null)
+        {
+            var actions = RoleService.GetALL()
+                .ToList()
+                .Select(x => new GroupSelectListItem()
+                {
+                    text = x.Name,
+                    value = x.ID.ToString()
+  
+                }).ToList();
+            if (!string.IsNullOrEmpty(RoleID))
+            {
+                var ids = Utilities.GetIdList(RoleID);
+                foreach (var id in ids)
+                {
+                    if (actions.Any(x => x.value == id.ToString()))
+                    {
+                        actions.Single(x => x.value == id.ToString()).selected = true;
+                    }
+                }
+            }
+            return Json(actions, JsonRequestBehavior.AllowGet);
+        }
+
+
         public ActionResult GetActionGroupCombox(string ActionID = null)
         {
             var actions = ActionService.GetALL().Include(x => x.Controller)
@@ -62,13 +87,13 @@ namespace CommonP.Controllers
                 .ToList();
 
             var list = new List<ComboTreeItem>();
+            var i = 0;
             foreach (var col in controlls)
             {
                 var item = new ComboTreeItem()
                 {
                     id = "c_" + col.ID.ToString(),
                     text = col.Name,
-
                     children = col.Action.Select(x => new ComboTreeItem()
                     {
                         id = x.ID.ToString(),
@@ -78,6 +103,7 @@ namespace CommonP.Controllers
                     }).ToList()
                 };
                 list.Add(item);
+                i++;
             }
             return Json(list, JsonRequestBehavior.AllowGet);
         }

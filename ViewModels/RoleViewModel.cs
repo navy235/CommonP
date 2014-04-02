@@ -25,7 +25,6 @@ namespace CommonP.ViewModels
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
- 
 
         [Required(ErrorMessage = "请选择操作")]
         [Display(Name = "操作列表")]
@@ -36,7 +35,7 @@ namespace CommonP.ViewModels
 
     public class RoleSearchViewModel
     {
-        [Display(Name = "操作名称")]
+        [Display(Name = "角色名称")]
         public string SearchName { get; set; }
 
 

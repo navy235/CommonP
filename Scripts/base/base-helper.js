@@ -8,11 +8,11 @@
         var target = $(e.currentTarget);
         var tabTitle = target.text();
         var url = target.attr("href");
-        self.addTab(tabTitle, url);
-        target.parent().addClass("selected");
+        var css = target.find('span').attr('class').replace('link-icon', '');
+        self.addTab(tabTitle, url, css);
       })
     },
-    addTab: function (subtitle, url) {
+    addTab: function (subtitle, url, css) {
       var self = this;
       if (!$('#tabs').tabs('exists', subtitle)) {
         $('#tabs').tabs('add', {
@@ -20,6 +20,7 @@
           content: self.createFrame(url),
           //href: url,
           closable: true,
+          iconCls: css
           //width: $('#mainPanle').width() - 10,
           //height: $('#mainPanle').height() - 26
         });
@@ -126,6 +127,9 @@
       } else {
         $.messager.alert('操作失败', res.Message, 'error');
       }
+    },
+    showError: function (title, message) {
+      $.messager.alert(title, message, 'error');
     }
   }
   window.Maitonn = window.Maitonn || {};

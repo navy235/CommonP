@@ -1,8 +1,9 @@
-@model  int?
+@model  string
 
 @{
     var name = ViewData.TemplateInfo.GetFullHtmlFieldName("");
     var loadUrl = ViewData[name + "_LoadUrl"].ToString();
+    var group = ViewData[name + "_Group"] != null ? ViewData[name + "_Group"].ToString() : string.Empty;
 }
 
 @Html.TextBoxFor(m => m, new { tabindex = -1, @class = "field-valid-text" })
@@ -11,6 +12,8 @@
     $(function () {
         $('#@(name)').groupCombox({
             url: '@loadUrl',
+            groupField: '@group',
+            value: '@Model',
             multiple: true
         })
     })

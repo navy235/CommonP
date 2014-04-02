@@ -41,24 +41,28 @@
 
         function edit() {
             var row = $('#dg').datagrid('getSelected');
-            var url = "@Url.Action("Edit")" + "/" + row.ID;
-        $('#kwindow').dialog('open')
-        .dialog('refresh', url)
-    }
+            if (!row) {
+                Maitonn.JHelper.showError('提醒', '请选择要编辑的行');
+            } else {
+                var url = "@Url.Action("Edit")" + "/" + row.ID;
+                $('#kwindow').dialog('open')
+                .dialog('refresh', url)
+            }
+        }
 
-    function deleteSingle() {
-        var row = $('#dg').datagrid('getSelected');
-        var id = row.ID;
-        $.post("@Url.Action("Delete")", { ID: id }, function (res) {
+        function deleteSingle() {
+            var row = $('#dg').datagrid('getSelected');
+            var id = row.ID;
+            $.post("@Url.Action("Delete")", { ID: id }, function (res) {
+                Maitonn.JHelper.showMessage(res);
+                $('#dg').datagrid('reload');
+            })
+        }
+
+        function ajaxFormSuccess(res) {
             Maitonn.JHelper.showMessage(res);
+            $('#kwindow').dialog('close')
             $('#dg').datagrid('reload');
-        })
-    }
-
-    function ajaxFormSuccess(res) {
-        Maitonn.JHelper.showMessage(res);
-        $('#kwindow').dialog('close')
-        $('#dg').datagrid('reload');
-    }
+        }
     </script>
 }

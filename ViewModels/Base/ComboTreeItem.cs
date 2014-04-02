@@ -24,6 +24,12 @@ namespace CommonP.ViewModels
 
         public bool @checked { get; set; }
 
+        public string state { get; set; }
+
+        public string iconCls { get; set; }
+
+        public string attributes { get; set; }
+
         public string text { get; set; }
 
         public List<ComboTreeItem> children { get; set; }

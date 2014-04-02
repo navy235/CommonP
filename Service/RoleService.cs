@@ -6,6 +6,8 @@ using CommonP.Models;
 using CommonP.ViewModels;
 using CommonP.Service.Interface;
 using Maitonn.Core;
+using CommonP.Utils;
+using Kendo.Mvc.Extensions;
 
 namespace CommonP.Service
 {
@@ -14,9 +16,12 @@ namespace CommonP.Service
 
         private readonly IUnitOfWork db;
 
-        public RoleService(IUnitOfWork db)
+        private readonly IActionService ActionService;
+
+        public RoleService(IUnitOfWork db, IActionService ActionService)
         {
             this.db = db;
+            this.ActionService = ActionService;
         }
         public IQueryable<Role> GetALL()
         {
@@ -40,6 +45,12 @@ namespace CommonP.Service
             var entity = new Role();
             entity.Name = model.Name;
             entity.Description = model.Description;
+            if (!string.IsNullOrEmpty(model.ActionID))
+            {
+                var ActionArray = Utilities.GetIdList(model.ActionID);
+                var ActionList = ActionService.GetALL().Where(x => ActionArray.Contains(x.ID));
+                entity.Action.AddRange(ActionList);
+            }
             db.Add<Role>(entity);
             db.Commit();
             return entity;
@@ -61,6 +72,34 @@ namespace CommonP.Service
             db.Attach<Role>(entity);
             entity.Name = model.Name;
             entity.Description = model.Description;
+            var ActionArray = new List<int>();
+            if (string.IsNullOrEmpty(model.ActionID))
+            {
+                entity.Action = new List<CommonP.Models.Action>();
+            }
+            else
+            {
+                ActionArray = Utilities.GetIdList(model.ActionID);
+                var ActiontList = ActionService.GetALL().Where(x => ActionArray.Contains(x.ID));
+                var currentActionArray = entity.Action.Select(x => x.ID).ToList();
+                foreach (CommonP.Models.Action ac in ActionService.GetALL())
+                {
+                    if (ActionArray.Contains(ac.ID))
+                    {
+                        if (!currentActionArray.Contains(ac.ID))
+                        {
+                            entity.Action.Add(ac);
+                        }
+                    }
+                    else
+                    {
+                        if (currentActionArray.Contains(ac.ID))
+                        {
+                            entity.Action.Remove(ac);
+                        }
+                    }
+                }
+            }
             db.Commit();
             return entity;
         }

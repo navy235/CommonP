@@ -48,9 +48,13 @@
 
     function edit() {
         var row = $('#dg').datagrid('getSelected');
-        var url = "@Url.Action("Edit")" + "/" + row.ID;
-        $('#kwindow').dialog('open')
-        .dialog('refresh', url)
+        if (!row) {
+            Maitonn.JHelper.showError('提醒', '请选择要编辑的行');
+        } else {
+            var url = "@Url.Action("Edit")" + "/" + row.ID;
+            $('#kwindow').dialog('open')
+            .dialog('refresh', url)
+        }
     }
 
     function deleteSingle() {

@@ -8,6 +8,11 @@ namespace CommonP.Models
 
     public class Group
     {
+        public Group()
+        {
+            this.Role = new HashSet<Role>();
+            this.Member = new HashSet<Member>();
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "ID")]

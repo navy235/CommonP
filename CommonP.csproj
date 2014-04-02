@@ -43,6 +43,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Binaries\Kendo.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Maitonn.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Binaries\Maitonn.Core.dll</HintPath>
@@ -150,8 +154,11 @@
     <Compile Include="Config\ConfigSetting.cs" />
     <Compile Include="Controllers\ActionController.cs" />
     <Compile Include="Controllers\AjaxServiceController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Extensions\DistinctExtensions.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,6 +200,7 @@
     <Content Include="Binaries\Kendo.Mvc.dll" />
     <Content Include="Binaries\Kendo.Mvc.resources.dll" />
     <Content Include="Binaries\Kendo.Mvc.xml" />
+    <Content Include="Binaries\log4net.dll" />
     <Content Include="Binaries\Maitonn.Core.dll" />
     <Content Include="Content\button.css" />
     <Content Include="Content\form.css" />
@@ -2774,6 +2782,7 @@
     <Content Include="Content\images\nav_link.gif" />
     <Content Include="Content\images\networking.png" />
     <Content Include="Content\images\next.gif" />
+    <Content Include="Content\images\noimages.gif" />
     <Content Include="Content\images\prev.gif" />
     <Content Include="Content\images\refresh.png" />
     <Content Include="Content\images\Search.png" />
@@ -2784,6 +2793,8 @@
     <Content Include="Content\images\topbg.png" />
     <Content Include="Content\images\top_title.png" />
     <Content Include="Content\images\top_title1.png" />
+    <Content Include="Content\images\uploadbtn-file.png" />
+    <Content Include="Content\images\uploadbtn.png" />
     <Content Include="Content\images\user_mature.png" />
     <Content Include="Content\images\validatebox_warning.png" />
     <Content Include="Content\images\window-resize.png" />
@@ -3046,6 +3057,51 @@
     <Content Include="Content\themes\default\images\Thumbs.db" />
     <Content Include="Content\themes\gray\images\Thumbs.db" />
     <Content Include="Content\themes\metro\images\Thumbs.db" />
+    <Content Include="jQuery-File-Upload-9.5.7\.gitignore" />
+    <Content Include="jQuery-File-Upload-9.5.7\angularjs.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\basic-plus.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\basic.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\cors\postmessage.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\cors\result.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\css\demo-ie8.css" />
+    <Content Include="jQuery-File-Upload-9.5.7\css\demo.css" />
+    <Content Include="jQuery-File-Upload-9.5.7\css\jquery.fileupload-noscript.css" />
+    <Content Include="jQuery-File-Upload-9.5.7\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="jQuery-File-Upload-9.5.7\css\jquery.fileupload-ui.css" />
+    <Content Include="jQuery-File-Upload-9.5.7\css\jquery.fileupload.css" />
+    <Content Include="jQuery-File-Upload-9.5.7\css\style.css" />
+    <Content Include="jQuery-File-Upload-9.5.7\Gruntfile.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\img\loading.gif" />
+    <Content Include="jQuery-File-Upload-9.5.7\img\progressbar.gif" />
+    <Content Include="jQuery-File-Upload-9.5.7\index.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\jquery-ui.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\app.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\cors\jquery.xdr-transport.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-angular.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-audio.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-image.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-process.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-ui.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-validate.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload-video.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.fileupload.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\jquery.iframe-transport.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\main.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\js\vendor\jquery.ui.widget.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-go\static\favicon.ico" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-go\static\robots.txt" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-python\static\favicon.ico" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-python\static\robots.txt" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\node\.gitignore" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\node\public\files\.gitignore" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\node\public\files\thumbnail\.gitignore" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\node\server.js" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\node\tmp\.gitignore" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\php\files\.gitignore" />
+    <Content Include="jQuery-File-Upload-9.5.7\test\index.html" />
+    <Content Include="jQuery-File-Upload-9.5.7\test\test.js" />
     <Content Include="Scripts\base\base-helper.js" />
     <Content Include="Scripts\easyui\easyui-extend.js" />
     <Content Include="Scripts\easyui\easyui-lang-zh_CN.js" />
@@ -3054,6 +3110,7 @@
     <Content Include="Scripts\formcontrol\control-cascading.js" />
     <Content Include="Scripts\formcontrol\control-groupcombox.js" />
     <Content Include="Scripts\formcontrol\control-mapmaker.js" />
+    <Content Include="Scripts\formcontrol\control-selectRadio.js" />
     <Content Include="Scripts\formcontrol\control-radiochecklist.js" />
     <Content Include="Scripts\formcontrol\control-smsvcode.js" />
     <Content Include="Scripts\formcontrol\control-uploadfile.js" />
@@ -3069,6 +3126,8 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.zcustom.js" />
+    <Content Include="Scripts\kendoupload\kendo.core.min.js" />
+    <Content Include="Scripts\kendoupload\kendo.upload.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\underscore-1.6.0.js" />
     <Content Include="Views\Shared\icon.css" />
@@ -3135,6 +3194,58 @@
   <ItemGroup>
     <Content Include="Views\Role\Edit.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Group\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Group\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Group\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Member\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Member\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Member\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\RadioList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jQuery-File-Upload-9.5.7\.jshintrc" />
+    <Content Include="jQuery-File-Upload-9.5.7\blueimp-file-upload.jquery.json" />
+    <Content Include="jQuery-File-Upload-9.5.7\bower.json" />
+    <Content Include="jQuery-File-Upload-9.5.7\CONTRIBUTING.md" />
+    <Content Include="jQuery-File-Upload-9.5.7\package.json" />
+    <Content Include="jQuery-File-Upload-9.5.7\README.md" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-go\app.yaml" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-go\app\main.go" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-python\app.yaml" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\gae-python\main.py" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\node\package.json" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\php\files\.htaccess" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\php\index.php" />
+    <Content Include="jQuery-File-Upload-9.5.7\server\php\UploadHandler.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\UploadImg.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\UploadFile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\UploadImgEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\UploadImgList.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -3151,7 +3262,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>6984</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:9703/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

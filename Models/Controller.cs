@@ -8,6 +8,12 @@ namespace CommonP.Models
 
     public class Controller
     {
+
+        public Controller()
+        {
+            this.Action = new HashSet<Action>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "ID")]
